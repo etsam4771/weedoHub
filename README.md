@@ -10,6 +10,10 @@ A feature-rich dictionary web application built with PHP and MySQL that allows y
 - **Real-time Search**: AJAX-powered search with instant results and debouncing
 - **CRUD Operations**: Add, edit, view, and delete dictionary words
 - **Text-to-Speech**: Listen to pronunciations of words, meanings, and examples in both English and Hindi
+- **Bulk Upload**: Import multiple words at once using CSV files
+- **Collection Bulk Upload**: Upload CSV directly into specific collections (NEW!)
+- **CSV Export**: Export all words or specific collections to CSV
+- **PDF Export**: Export dictionary or collections as professional PDFs (NEW!)
 
 ### Performance Features
 - **Infinite Scroll**: Automatically load more words as you scroll (perfect for 1000+ words)
@@ -87,6 +91,12 @@ etsamDicnoary/
 ├── add_word.php                 # Add new words
 ├── edit_word.php                # Edit existing words
 ├── delete_word.php              # Delete words
+├── bulk_upload.php              # Bulk upload words from CSV
+├── collection_bulk_upload.php   # Upload CSV to specific collection (NEW!)
+├── export.php                   # Export words to CSV
+├── export_pdf.php               # Export words to PDF (NEW!)
+├── fpdf_lib/                    # FPDF library for PDF generation
+├── sample_template.csv          # Sample CSV template for bulk upload
 ├── categories.php               # Manage collections
 ├── view_collection.php          # View words in a collection (AJAX-powered)
 ├── add_to_collection.php        # Add word to collection
@@ -106,6 +116,21 @@ etsamDicnoary/
    - English Meaning (required)
    - Example (optional)
 3. Click **"Add Word"**
+
+### Bulk Uploading Words
+1. Click **"📤 Bulk Upload"** in the navigation (for general upload)
+   OR
+   Click **"📦 Collection Upload"** to upload directly to a collection
+2. Download the sample CSV template
+3. Fill in your words following the format:
+   - Column 1: Word Name
+   - Column 2: Hindi Meaning
+   - Column 3: English Meaning
+   - Column 4: Example (optional)
+4. Save your CSV file
+5. For collection upload: Select the target collection from dropdown
+6. Upload the file using the upload form
+7. Words will be imported automatically
 
 ### Creating Collections
 1. Go to **"My Collections"**
@@ -143,6 +168,14 @@ etsamDicnoary/
 2. Click **"View Words"** on any collection
 3. See all words in that collection
 4. Remove words from collection as needed
+
+### Exporting Data
+1. **Export All Words to CSV**: Click "📥 Export CSV" on the main dictionary page
+2. **Export All Words to PDF**: Click "📄 Export PDF" on the main dictionary page
+3. **Export Collection to CSV**: Click "📥 Export CSV" when viewing a collection
+4. **Export Collection to PDF**: Click "📄 Export PDF" when viewing a collection
+5. CSV files have UTF-8 encoding (Excel compatible)
+6. PDF files are beautifully formatted with word cards
 
 ## 🗄️ Database Structure
 

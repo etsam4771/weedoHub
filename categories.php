@@ -60,6 +60,8 @@ $result = $conn->query($sql);
                 <a href="index.php">Dictionary</a>
                 <a href="categories.php" class="active">My Collections</a>
                 <a href="add_word.php">+ Add Word</a>
+                <a href="bulk_upload.php">📤 Bulk Upload</a>
+                <a href="collection_bulk_upload.php">📦 Collection Upload</a>
             </nav>
         </header>
 

@@ -647,6 +647,138 @@ footer {
     margin-bottom: 5px;
 }
 
+/* Bulk Upload & Export Styles */
+.upload-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.upload-instructions {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.upload-instructions h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.upload-instructions h4 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.upload-instructions ol,
+.upload-instructions ul {
+    margin-left: 20px;
+    line-height: 1.8;
+}
+
+.download-section {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.upload-form-container {
+    background: white;
+    border: 2px dashed #667eea;
+    border-radius: 6px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-form-container h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.file-input-wrapper {
+    margin-bottom: 20px;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.file-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.file-icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-form .form-actions {
+    justify-content: center;
+}
+
+.error-details {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.error-details h3 {
+    color: #856404;
+    margin-bottom: 10px;
+}
+
+.error-details ul {
+    margin-left: 20px;
+    color: #856404;
+}
+
+.error-details li {
+    margin-bottom: 5px;
+}
+
+.btn-export {
+    background: #28a745;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-export:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.export-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {

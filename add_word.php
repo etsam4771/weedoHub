@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="index.php">Dictionary</a>
                 <a href="categories.php">My Collections</a>
                 <a href="add_word.php" class="active">+ Add Word</a>
+                <a href="bulk_upload.php">📤 Bulk Upload</a>
+                <a href="collection_bulk_upload.php">📦 Collection Upload</a>
             </nav>
         </header>
 

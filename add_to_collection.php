@@ -78,6 +78,8 @@ while ($row = $result->fetch_assoc()) {
                 <a href="index.php">Dictionary</a>
                 <a href="categories.php">My Collections</a>
                 <a href="add_word.php">+ Add Word</a>
+                <a href="bulk_upload.php">📤 Bulk Upload</a>
+                <a href="collection_bulk_upload.php">📦 Collection Upload</a>
             </nav>
         </header>
 

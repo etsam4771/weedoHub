@@ -53,6 +53,8 @@ $conn->close();
                 <a href="index.php">Dictionary</a>
                 <a href="categories.php">My Collections</a>
                 <a href="add_word.php">+ Add Word</a>
+                <a href="bulk_upload.php">📤 Bulk Upload</a>
+                <a href="collection_bulk_upload.php">📦 Collection Upload</a>
             </nav>
         </header>
 
@@ -66,6 +68,10 @@ $conn->close();
                     <?php if (!empty($category['description'])): ?>
                         <p class="category-description"><?php echo htmlspecialchars($category['description']); ?></p>
                     <?php endif; ?>
+                </div>
+                <div class="export-actions">
+                    <a href="export.php?type=collection&category_id=<?php echo $category_id; ?>" class="btn-export">📥 Export CSV</a>
+                    <a href="export_pdf.php?type=collection&category_id=<?php echo $category_id; ?>" class="btn-export" style="background: #dc3545;">📄 Export PDF</a>
                 </div>
             </div>
 

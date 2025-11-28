@@ -16,7 +16,9 @@ require_once 'config.php';
             <nav>
                 <a href="index.php" class="active">Dictionary</a>
                 <a href="categories.php">My Collections</a>
-                <a href="add_word.php" class="btn-primary">+ Add Word</a>
+                <a href="add_word.php">+ Add Word</a>
+                <a href="bulk_upload.php">📤 Bulk Upload</a>
+                <a href="collection_bulk_upload.php">📦 Collection Upload</a>
             </nav>
         </header>
 
@@ -32,6 +34,7 @@ require_once 'config.php';
                            class="search-input">
                     <button type="submit" class="btn-primary">Search</button>
                     <button type="button" id="clearSearch" class="btn-secondary" style="display:none;">Clear</button>
+                    <a href="export.php?type=all" class="btn-export" title="Export all words to CSV">📥 Export All</a>
                 </form>
             </div>
 
