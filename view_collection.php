@@ -35,15 +35,7 @@ if (isset($_GET['remove_word'])) {
     exit();
 }
 
-// Get words in this collection
-$sql = "SELECT w.* FROM words w 
-        INNER JOIN word_collections wc ON w.id = wc.word_id 
-        WHERE wc.category_id = ? 
-        ORDER BY w.word_name ASC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $category_id);
-$stmt->execute();
-$result = $stmt->get_result();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,47 +70,20 @@ $result = $stmt->get_result();
             </div>
 
             <div class="stats">
-                <p>Words in this collection: <strong><?php echo $result->num_rows; ?></strong></p>
+                <p>Words in this collection: <strong id="totalWords">0</strong></p>
             </div>
 
-            <div class="words-grid">
-                <?php if ($result->num_rows > 0): ?>
-                    <?php while($word = $result->fetch_assoc()): ?>
-                        <div class="word-card">
-                            <div class="word-header">
-                                <h2><?php echo htmlspecialchars($word['word_name']); ?></h2>
-                                <div class="word-actions">
-                                    <a href="edit_word.php?id=<?php echo $word['id']; ?>" class="btn-edit">Edit</a>
-                                    <a href="view_collection.php?id=<?php echo $category_id; ?>&remove_word=<?php echo $word['id']; ?>" 
-                                       class="btn-delete" 
-                                       onclick="return confirm('Remove this word from the collection?')">Remove</a>
-                                </div>
-                            </div>
-                            
-                            <div class="meanings">
-                                <div class="meaning-section">
-                                    <span class="label">Hindi:</span>
-                                    <span class="meaning"><?php echo htmlspecialchars($word['meaning_hindi']); ?></span>
-                                </div>
-                                <div class="meaning-section">
-                                    <span class="label">English:</span>
-                                    <span class="meaning"><?php echo htmlspecialchars($word['meaning_english']); ?></span>
-                                </div>
-                            </div>
-                            
-                            <?php if (!empty($word['example'])): ?>
-                                <div class="example">
-                                    <span class="label">Example:</span>
-                                    <p><?php echo htmlspecialchars($word['example']); ?></p>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <div class="no-results">
-                        <p>No words in this collection yet. <a href="index.php">Browse the dictionary</a> and add words to this collection!</p>
-                    </div>
-                <?php endif; ?>
+            <div id="wordsContainer" class="words-grid">
+                <!-- Words will be loaded here via AJAX -->
+            </div>
+
+            <div id="loading" class="loading" style="display:none;">
+                <div class="spinner"></div>
+                <p>Loading more words...</p>
+            </div>
+
+            <div id="noMoreResults" class="no-results" style="display:none;">
+                <p>No more words to load.</p>
             </div>
         </main>
 
@@ -126,6 +91,10 @@ $result = $stmt->get_result();
             <p>&copy; <?php echo date('Y'); ?> My Dictionary - Learn & Organize Words</p>
         </footer>
     </div>
+
+    <script>
+        const categoryId = <?php echo $category_id; ?>;
+    </script>
+    <script src="collection_script.js"></script>
 </body>
 </html>
-<?php $conn->close(); ?>

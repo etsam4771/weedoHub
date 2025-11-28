@@ -7,8 +7,15 @@ A feature-rich dictionary web application built with PHP and MySQL that allows y
 ### Core Functionality
 - **Multi-language Dictionary**: Store words with both Hindi (हिंदी) and English meanings
 - **Examples**: Add example sentences to illustrate word usage
-- **Search**: Quick search functionality across words and meanings
+- **Real-time Search**: AJAX-powered search with instant results and debouncing
 - **CRUD Operations**: Add, edit, view, and delete dictionary words
+- **Text-to-Speech**: Listen to pronunciations of words, meanings, and examples in both English and Hindi
+
+### Performance Features
+- **Infinite Scroll**: Automatically load more words as you scroll (perfect for 1000+ words)
+- **AJAX Loading**: Fast, asynchronous content loading without page refreshes
+- **Smart Debouncing**: Search automatically 500ms after you stop typing
+- **Optimized Queries**: Loads 20 words at a time for optimal performance
 
 ### Collections System
 - **Create Custom Collections**: Organize words into sub-dictionaries (e.g., "Important Words", "Daily Use", "Academic")
@@ -19,8 +26,9 @@ A feature-rich dictionary web application built with PHP and MySQL that allows y
 ### User Experience
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Beautiful UI**: Modern gradient design with smooth animations
-- **Pagination**: Easy navigation through large word lists
+- **Auto-loading**: No pagination buttons needed - content loads as you scroll
 - **Flash Messages**: Clear feedback for all user actions
+- **Audio Pronunciation**: Click 🔊 buttons to hear words spoken aloud
 
 ## 🚀 Installation
 
@@ -70,17 +78,22 @@ A feature-rich dictionary web application built with PHP and MySQL that allows y
 
 ```
 etsamDicnoary/
-├── index.php              # Main dictionary listing page
-├── add_word.php          # Add new words
-├── edit_word.php         # Edit existing words
-├── delete_word.php       # Delete words
-├── categories.php        # Manage collections
-├── view_collection.php   # View words in a collection
-├── add_to_collection.php # Add word to collection
-├── config.php            # Database configuration
-├── style.css             # Styling and responsive design
-├── database.sql          # Database schema and sample data
-└── README.md            # This file
+├── api/
+│   ├── get_words.php           # AJAX endpoint for loading words
+│   └── get_collection_words.php # AJAX endpoint for collection words
+├── index.php                    # Main dictionary listing page (AJAX-powered)
+├── script.js                    # AJAX, infinite scroll, and TTS functionality
+├── collection_script.js         # Collection page AJAX functionality
+├── add_word.php                 # Add new words
+├── edit_word.php                # Edit existing words
+├── delete_word.php              # Delete words
+├── categories.php               # Manage collections
+├── view_collection.php          # View words in a collection (AJAX-powered)
+├── add_to_collection.php        # Add word to collection
+├── config.php                   # Database configuration
+├── style.css                    # Styling and responsive design
+├── database.sql                 # Database schema and sample data
+└── README.md                    # This file
 ```
 
 ## 🎯 How to Use
@@ -109,7 +122,21 @@ etsamDicnoary/
 ### Searching Words
 1. Use the search box on the main dictionary page
 2. Type any word, Hindi meaning, or English meaning
-3. Click **"Search"** or press Enter
+3. Results appear automatically as you type (500ms debounce)
+4. Click "Clear" to reset the search
+
+### Using Text-to-Speech
+1. Click the 🔊 button next to any word to hear it pronounced
+2. Click 🔊 next to Hindi meanings to hear in Hindi
+3. Click 🔊 next to English meanings to hear in English
+4. Click 🔊 next to examples to hear the example sentence
+5. Text-to-speech works in modern browsers (Chrome, Edge, Safari, Firefox)
+
+### Infinite Scroll
+- Scroll down to automatically load more words
+- No need to click "Next" or page numbers
+- Loading indicator appears while fetching data
+- Optimized for lists with 1000+ words
 
 ### Viewing Collections
 1. Go to **"My Collections"**
@@ -196,14 +223,19 @@ The website is fully responsive and works on:
 ## 🚀 Future Enhancements
 
 Potential features to add:
+- [x] AJAX-based infinite scroll
+- [x] Text-to-speech for pronunciations
+- [x] Real-time search with debouncing
 - [ ] User authentication and multi-user support
 - [ ] Export collections to PDF/CSV
-- [ ] Audio pronunciation
+- [ ] Offline audio files for pronunciation
 - [ ] Word of the day
 - [ ] Quiz/Practice mode
 - [ ] API for mobile apps
-- [ ] Advanced filtering and sorting
+- [ ] Advanced filtering by categories
 - [ ] Word etymology and origin
+- [ ] Bookmarking/Favorites system
+- [ ] Speech recognition for search
 
 ## 📄 License
 
