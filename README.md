@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📚 Dictionary Website - PHP Learning Platform
 
 A feature-rich dictionary web application built with PHP and MySQL that allows you to manage words with Hindi and English meanings, examples, and organize them into custom collections.
@@ -290,3 +291,7 @@ For issues or questions:
 ---
 
 **Happy Learning! 📚**
+=======
+# weedoHub
+The WeedoHub is self  chosen word dictionary App
+>>>>>>> cc3111162f368fd5fbf66b2982cc90f12be65b1c
