@@ -1,9 +1,9 @@
 <?php
 // Database configuration
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', 'etsam4771');
-define('DB_NAME', 'dictionary_db');
+define('DB_USER', 'u774936395_etsam4771');
+define('DB_PASS', 'Ets@m4771');
+define('DB_NAME', 'u774936395_etsam4771');
 
 // Create database connection
 function getDBConnection() {

@@ -85,7 +85,7 @@ if ($type === 'collection' && $category_id > 0) {
             FROM words w
             INNER JOIN word_collections wc ON w.id = wc.word_id
             WHERE wc.category_id = ?
-            ORDER BY w.word_name ASC
+            ORDER BY w.created_at DESC
         ");
         $stmt->bind_param("i", $category_id);
     } else {

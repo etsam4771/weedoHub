@@ -16,7 +16,7 @@ if ($category_id <= 0) {
 $sql = "SELECT w.* FROM words w 
         INNER JOIN word_collections wc ON w.id = wc.word_id 
         WHERE wc.category_id = ? 
-        ORDER BY w.word_name ASC
+        ORDER BY w.created_at DESC
         LIMIT ? OFFSET ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("iii", $category_id, $perPage, $offset);

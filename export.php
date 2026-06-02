@@ -25,7 +25,7 @@ if ($type === 'collection' && $category_id > 0) {
             FROM words w
             INNER JOIN word_collections wc ON w.id = wc.word_id
             WHERE wc.category_id = ?
-            ORDER BY w.word_name ASC";
+            ORDER BY w.created_at DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $category_id);
     $stmt->execute();
@@ -34,7 +34,7 @@ if ($type === 'collection' && $category_id > 0) {
     // Export all words
     $sql = "SELECT word_name, meaning_hindi, meaning_english, example, created_at 
             FROM words 
-            ORDER BY word_name ASC";
+            ORDER BY created_at DESC";
     $result = $conn->query($sql);
 }
 

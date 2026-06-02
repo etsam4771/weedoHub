@@ -33,7 +33,7 @@ if (!empty($params)) {
 $totalWords = $totalResult->fetch_assoc()['total'];
 
 // Get words
-$sql = "SELECT * FROM words $searchQuery ORDER BY word_name ASC LIMIT ? OFFSET ?";
+$sql = "SELECT * FROM words $searchQuery ORDER BY created_at DESC LIMIT ? OFFSET ?";
 if (!empty($params)) {
     $stmt = $conn->prepare($sql);
     $params[] = $perPage;
